@@ -1,0 +1,26 @@
+{
+  "name": "@hspkg/generator-rc",
+  "version": "0.0.3",
+  "description": "React component generator",
+  "homepage": "https://github.com/int64ago/generator-rc",
+  "author": {
+    "name": "Cody Chan",
+    "email": "int64ago@gmail.com",
+    "url": "https://int64ago.org/"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "react-component",
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^2.0.1",
+    "chalk": "^2.1.0",
+    "yosay": "^2.0.1"
+  },
+  "repository": "int64ago/generator-rc",
+  "license": "MIT"
+}

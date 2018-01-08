@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Cody Chan",
+      "authorEmail": "int64ago@gmail.com",
+      "authorUrl": "https://int64ago.org/"
+    }
+  }
+}

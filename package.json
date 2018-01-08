@@ -1,6 +1,6 @@
 {
   "name": "@hspkg/generator-rc",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "React component generator",
   "homepage": "https://github.com/int64ago/generator-rc",
   "author": {

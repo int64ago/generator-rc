@@ -5,32 +5,55 @@ const yosay = require('yosay');
 
 module.exports = class extends Generator {
   prompting() {
-    // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the groovy ' + chalk.red('generator-rc') + ' generator!'
+      'Welcome to the groovy ' + chalk.red('@hspkg/generator-rc') + ' generator!'
     ));
 
-    const prompts = [{
-      type: 'confirm',
-      name: 'someAnswer',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
+    const validate = input => !!input;
+
+    const prompts = [
+      {
+        name: 'name',
+        message: 'The name of the project:',
+        validate,
+      },
+      {
+        name: 'desc',
+        message: 'The description of the project:',
+        validate,
+      },
+      {
+        name: 'author',
+        message: 'The author:',
+        validate,
+      },
+    ];
 
     return this.prompt(prompts).then(props => {
-      // To access props later use this.props.someAnswer;
       this.props = props;
     });
   }
 
   writing() {
     this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
+      this.templatePath('**/*'),
+      this.destinationRoot(),
+      { globOptions: { dot: true } },
     );
+
+    ['README.md', 'package.json', 'LICENSE'].forEach(file => {
+      this.fs.copyTpl(
+        this.templatePath(file),
+        this.destinationPath(file),
+        this.props,
+      );
+    });
   }
 
   install() {
-    this.installDependencies();
+    this.installDependencies({
+      npm: true,
+      bower: false,
+    }).then(() => console.log(chalk.green('Everything is ready!')));
   }
 };

@@ -41,13 +41,23 @@ module.exports = class extends Generator {
       { globOptions: { dot: true } },
     );
 
-    ['README.md', 'package.json', 'LICENSE'].forEach(file => {
+    ['README.md', 'LICENSE'].forEach(file => {
       this.fs.copyTpl(
         this.templatePath(file),
         this.destinationPath(file),
-        this.props,
+        this.props
       );
     });
+
+    this.fs.copyTpl(
+      this.templatePath('package'),
+      this.destinationPath('package.json'),
+      this.props
+    );
+
+    this.fs.delete(
+      this.destinationPath('package')
+    );
   }
 
   install() {

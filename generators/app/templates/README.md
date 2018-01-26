@@ -8,6 +8,12 @@
 npm start
 ```
 
+## Deploy DEMO
+
+```bash
+npm run example
+```
+
 ## License
 MIT © <%= author %>
 

@@ -7,10 +7,11 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'index.js',
+    libraryTarget: 'umd',
   },
 
   externals: {
-    react: 'React',
+    react: 'react',
   },
 
   module: {
